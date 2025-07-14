@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salle de Sport Énergie+</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+/* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        position: relative;
+        background-color: #272425;
+        color: white;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+     nav {
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    /* Style des liens */
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+
+    nav a:hover {
+      background-color: #c2185b;
+    }
+
+
+    .hero {
+        background-image: url(bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 25px;
+        background-color: #e91e63;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #c2185b;
+    }
+
+
+    .about, .services, .testimonials {
+        padding: 60px 20px;
+        text-align: center;
+        background: white;
+    }
+
+    .about p{
+        max-width: 800px;
+        margin: 10px auto;
+    }
+
+
+    
+    .testimonials {
+        font-style: italic;
+    }
+
+
+
+    footer {
+        background-color: #222;
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+
+
+    
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2rem;
+        }
+    .service-boxes {
+        flex-direction: column;
+        align-items: center;
+        } 
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Énergie+</div>
+    <nav>
+      <ul>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="#about">À propos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Atteignez vos objectifs avec Énergie+</h1>
+      <p>Coaching personnalisé, équipements modernes, ambiance motivante.</p>
+      <a href="inscription.html" class="btn">Rejoignez-nous</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>À propos de notre salle</h2>
+    <p>Énergie+ est une salle de sport moderne située au cœur de la ville. Nous offrons des programmes adaptés à tous les niveaux, du débutant au confirmé.</p>
+  </section>
+
+  
+
+  <section class="testimonials">
+    <h2>Témoignages</h2>
+    <p>“Une salle conviviale et très bien équipée !” </p>
+    <p>“Les coachs sont à l’écoute et motivants.”</p>
+  </section>
+
+  <footer id="contact">
+    <p>Contact : energieplus@salle.com | Chedi Mezrigui | Tél : 11 111 111</p>
+    <p>&copy; 2025 Énergie+ - Tous droits réservés</p>
+  </footer>
+
+</body>
+</html>

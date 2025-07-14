@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement sécurisé</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+
+    .payment-form {
+      background: white;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .confirmation-box {
+  background-color: #fff;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.btn-retour {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff7f00;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-retour:hover {
+  background-color: #e67300;
+}
+
+form{width: 500px;
+margin-left: 35%;
+border-color: #ccc;}
+  </style>
+</head>
+<body>
+  <form action="confirmation.html" method="GET" >
+    <h2>Paiement sécurisé</h2>
+
+    <label for="cardType">Type de carte</label>
+    <select id="cardType" required>
+      <option value="">Sélectionner</option>
+      <option value="visa">Visa</option>
+      <option value="mastercard">MasterCard</option>
+      <option value="amex">American Express</option>
+    </select>
+
+    <label for="cardNumber">Numéro de carte</label>
+    <input type="text" id="cardNumber" required maxlength="16" placeholder="**** **** **** ****" inputmode="numeric" pattern="\d*">
+
+    <label for="expiry">Date d'expiration</label>
+    <input type="month" id="expiry" required>
+
+    <label for="cvv">CVV</label>
+    <input type="text" id="cvv" required maxlength="4" placeholder="***">
+
+    <label for="email">Adresse mail</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Numéro de téléphone</label>
+    <input type="tel" id="phone" required placeholder="+216 12 345 678">
+
+    <label for="city">Ville</label>
+    <input type="text" id="city" required>
+
+    <button type="submit">Payer maintenant</button>
+
+  </form>
+
+  <script>
+    function handlePayment(e) {
+      e.preventDefault();
+
+      window.location.href = "confirmation.html";
+    }
+
+    function handlePayment(e) {
+  e.preventDefault();
+
+  const cardNumber = document.getElementById("cardNumber").value.trim();
+  const expYear = parseInt(document.getElementById("expYear").value.trim());
+
+  const cardRegex = /^\d{16}$/;
+  if (!cardRegex.test(cardNumber)) {
+    alert("Le numéro de carte doit contenir exactement 16 chiffres.");
+    return;
+  }
+
+}
+
+  </script>
+
+</body>
+</html>

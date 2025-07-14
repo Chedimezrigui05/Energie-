@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Création de Compte</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      background-image: url(inscri.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 90vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .form-container {
+      backdrop-filter: blur(2px);
+      margin-right: 909px;
+      margin-top: 25px;
+      height: 550px;
+      background-color: rgba(251, 0, 0, 0.3);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      margin-top: -5px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 3px solid #ccc;
+      border-radius: 30px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+    }
+
+    input:hover {
+      transform: scale(1.1);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .buttons input,
+    .buttons button {
+      width: 48%;
+      padding: 10px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .create {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .create:hover {
+      background-color: #45a049;
+    }
+
+    .reset {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .reset:hover {
+      background-color: #e53935;
+    }
+  </style>
+
+  <script>
+    function run() {
+      let nom = document.getElementById("nom").value.trim();
+      let naissance = document.getElementById("naissance").value;
+      let email = document.getElementById("email").value.trim();
+      let tel = document.getElementById("telephone").value.trim();
+      let seances = document.getElementById("ss").value;
+      let m = document.getElementById("m").checked;
+      let ca = document.getElementById("ca").checked;
+      let c = document.getElementById("c").checked;
+
+      if (nom.length < 2 || nom.indexOf(" ") === -1) {
+        alert("Veuillez saisir nom et prénom (séparés par un espace).");
+        return false;
+      }
+
+      if (email === "" || !email.includes("@") || !email.includes(".")) {
+        alert("Email invalide.");
+        return false;
+      }
+
+      if (tel.length !== 8 || isNaN(tel)) {
+        alert("Téléphone invalide (8 chiffres requis).");
+        return false;
+      }
+
+        let birthDate = new Date(naissance);
+  let today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let mDiff = today.getMonth() - birthDate.getMonth();
+  if (mDiff < 0 || (mDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  if (age < 13) {
+    alert("Vous devez avoir plus de 12 ans pour vous inscrire.");
+    return false;
+  }
+
+      if (seances < 1 || seances > 6) {
+        alert("Le nombre de séances doit être entre 1 et 6.");
+        return false;
+      }
+
+      if (!m && !ca && !c) {
+        alert("Cochez au moins un type d'entraînement.");
+        return false;
+      }
+
+      return true; 
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Inscription</h2>
+    <form action="inscription.php" method="POST" onsubmit="return run()">
+      <label for="nom">Nom et prénom :</label>
+      <input type="text" id="nom" name="nom" placeholder="Saisissez votre nom" required />
+
+      <label for="naissance">Date de naissance :</label>
+      <input type="date" id="naissance" name="naissance" required />
+
+      <label for="email">Adresse mail :</label>
+      <input type="email" id="email" name="email" placeholder="exemple@mail.com" required />
+
+      <label for="telephone">Numéro de téléphone :</label>
+      <input type="tel" id="telephone" name="telephone" pattern="[0-9]{8}" placeholder="8 chiffres" required />
+
+      <label for="ss">Séances/Semaine :</label>
+      <input type="number" id="ss" name="seances" max="6" min="1" required />
+
+      <label>Type d'entraînement :</label>
+      <input type="checkbox" id="m" name="type[]" value="musculation" />Musculation
+      <input type="checkbox" id="ca" name="type[]" value="cardio" />Cardio
+      <input type="checkbox" id="c" name="type[]" value="coaching" />Coaching
+
+      <div class="buttons">
+        <input type="submit" value="S'inscrire" class="create" />
+        <button type="reset" class="reset">Supprimer</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
